@@ -5,6 +5,16 @@ export interface FiberType{
     synthetic: boolean;
 }
 
+export interface PatternList{
+    designer: string; //fix with patternAuthor
+    id: number;
+}
+
+export interface PatternFull {
+    id: number;
+    size_available: string;
+}
+
 export interface YarnFiber{
     fiber_type: FiberType;
     id: number;
@@ -16,14 +26,4 @@ export interface YarnFull{
     discontinued: boolean;
     id: number;
     yarn_fibers: YarnFiber[];
-}
-
-export interface PatternList{
-    designer: string; //fix with patternAuthor
-    id: number;
-}
-
-export interface PatternFull {
-    id: number;
-    size_available: string;
 }
