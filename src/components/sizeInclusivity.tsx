@@ -1,16 +1,9 @@
-import React from "react";
-import { getSweaters } from "../services/ravelryApi";
+import React, { useEffect, useState } from "react";
+import { getMostPopularSweaters, getPatternsById } from "../services/ravelryApi";
 
-export default function SizeInclusivity(){
+const SizeInclusivity = () => {
 
-    
-    getData();
-    return(
-        <p>size info</p>
-    )
-}
+  return <p></p>;
+};
 
-function getData(){
-    const sweaterData = getSweaters();
-    console.log(sweaterData)
-}
+export default SizeInclusivity;
