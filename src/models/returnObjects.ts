@@ -1,8 +1,12 @@
 //Keeping track of just return objects
 
-import { PatternList } from "./models";
+import { PatternFull, PatternList } from "./models";
 
-export interface PatternSearchResult{
+export interface PatternSearchResult {
     patterns: PatternList[];
     paginator: Object;
+}
+
+export interface PatternSearchByIdResult {
+    patterns: PatternFull[];
 }
