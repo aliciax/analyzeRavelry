@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Analyze Ravelry
+
+This was created for Microsoft's 2022 hackathon. The goal is to take some time to analyze the landscape on sizing and the materials used on Ravelry. It takes the top and most recent patterns to analyze. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
