@@ -1,11 +1,11 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import {
-  fetchPopularSweaters,
-} from "./state/dataReducer";
+import { fetchPopularSweaters } from "./state/dataReducer";
 import { useAppDispatch } from "./state/store";
 import { SizeInclusivity } from "./components/sizeInclusivity";
 import { Sustainability } from "./components/sustainability";
+import { Label, Pivot, PivotItem } from "@fluentui/react";
+
 function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -15,8 +15,14 @@ function App() {
   return (
     <div>
       <header>Analyzing Knitting and Crochet through Ravelry</header>
-      <SizeInclusivity />
-      <Sustainability />
+      <Pivot aria-label="Basic Pivot Example">
+        <PivotItem headerText="Size Inclusivity">
+          <SizeInclusivity />
+        </PivotItem>
+        <PivotItem headerText="Sustainability">
+          <Sustainability />
+        </PivotItem>
+      </Pivot>
     </div>
   );
 }
