@@ -1,7 +1,7 @@
-import { PatternFull} from "../models/models";
+import { PatternFull } from "../models/models";
 
-export interface dataReducerState{
-    popularSweaters: PatternFull[],
+export interface dataReducerState {
+    popularSweaters: PatternFull[] ,
     recentSweaters: PatternFull[],
 
 }
