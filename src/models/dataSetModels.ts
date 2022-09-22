@@ -7,4 +7,5 @@ export interface sizeDataSet{
     letterSizing: number;
     numberSizes: number;
     sizingNotes: number;
+    irregular: number;
 }

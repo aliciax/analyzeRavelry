@@ -4,6 +4,10 @@ import { sizeDataSet } from "../models/dataSetModels";
 import { PatternFull } from "../models/models";
 import { selectPopularSweaters } from "../state/dataReducer";
 
+const LetterRegex: RegExp = /XXL|2XL|2X|4XL|5XL/;
+const NumberRegex: RegExp = /”|"|cm|in|inches/;
+const NotesRegex: RegExp = /(1 \(2)|notes/;
+
 export function SizeInclusivity() {
   const popularSweaterData: PatternFull[] = useSelector(selectPopularSweaters);
 
@@ -28,6 +32,7 @@ function extractSizeDataSet(data: PatternFull[]) {
     numberSizes: 0,
     sizingNotes: 0,
     straightSizeOnly: 0,
+    irregular: 0,
   };
 
   data.forEach((x) => {
@@ -36,18 +41,18 @@ function extractSizeDataSet(data: PatternFull[]) {
     } else {
       dataSet.knitting++;
     }
+
     if (x.sizes_available.includes("L") || x.sizes_available.includes("XL")) {
-      x.sizes_available.includes("XL") ||
-      x.sizes_available.includes("XXL") ||
-      x.sizes_available.includes("2XL") ||
-      x.sizes_available.includes("2X")
+      x.sizes_available.match(LetterRegex)
         ? dataSet.letterSizing++
         : dataSet.straightSizeOnly++;
-    } else if (x.sizes_available.includes("notes")) {
+    } else if (x.sizes_available.match(NumberRegex) != null) {
+      dataSet.numberSizes++;
+    } else if (x.sizes_available.match(NotesRegex)) {
       dataSet.sizingNotes++;
     } else {
-      console.log(x.sizes_available);
+      dataSet.irregular++;
     }
   });
-  console.log(dataSet);
+  return dataSet;
 }
