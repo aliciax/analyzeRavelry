@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { PatternFull, PatternList } from "../models/models";
 import { PatternSearchByIdResult, PatternSearchResult } from "../models/returnObjects";
 import { getMostPopularSweaters, getPatternsById } from "../services/ravelryApi";
+import { patternToArray } from "../utils/formatingData";
 import { dataReducerState } from "./reducerStates";
 
 const initialState: dataReducerState = {
@@ -23,7 +24,7 @@ export const fetchPopularSweaters = createAsyncThunk("patterns/search.json?query
     const popularSweaters:PatternSearchResult = await getMostPopularSweaters();
     const ids = popularSweaters.patterns.map((x: PatternList) =>  x.id)
     const fullSweaterData: PatternSearchByIdResult = await getPatternsById(ids);
-    thunkApi.dispatch(updatePopularSweaters(fullSweaterData.patterns))
+    thunkApi.dispatch(updatePopularSweaters(patternToArray(fullSweaterData.patterns)));
     return fullSweaterData;
 })
 

@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
 import {  selectPopularSweaters } from "../state/dataReducer";
 
-const Sustainability = () => {
+export function Sustainability () {
   const popularSweaterData = useSelector(selectPopularSweaters);
-  console.log(popularSweaterData)
+  //console.log(popularSweaterData)
   
   return <p>Sustainability!</p>;
 };
 
-export default Sustainability;

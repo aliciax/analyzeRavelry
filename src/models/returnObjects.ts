@@ -8,5 +8,6 @@ export interface PatternSearchResult {
 }
 
 export interface PatternSearchByIdResult {
-    patterns: PatternFull[];
+    patterns: {string: PatternFull};
 }
+

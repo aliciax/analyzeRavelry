@@ -1,11 +1,11 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import SizeInclusivity from "./components/sizeInclusivity";
 import {
   fetchPopularSweaters,
 } from "./state/dataReducer";
 import { useAppDispatch } from "./state/store";
-import Sustainability from "./components/sustainability";
+import { SizeInclusivity } from "./components/sizeInclusivity";
+import { Sustainability } from "./components/sustainability";
 function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
