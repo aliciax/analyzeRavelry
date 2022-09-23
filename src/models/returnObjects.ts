@@ -1,6 +1,6 @@
 //Keeping track of just return objects
 
-import { PatternFull, PatternList } from "./models";
+import { PatternFull, PatternList, YarnFull } from "./models";
 
 export interface PatternSearchResult {
     patterns: PatternList[];
@@ -9,5 +9,10 @@ export interface PatternSearchResult {
 
 export interface PatternSearchByIdResult {
     patterns: {string: PatternFull};
+}
+
+
+export interface YarnSearchByIdResult {
+    yarn: {string: YarnFull};
 }
 

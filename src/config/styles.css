@@ -1,0 +1,21 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F3F4F0;
+}
+
+.flex {
+  display: flex;
+}
+
+.container {
+  margin: 5%;
+}
+
+.section {
+  margin: 30px;
+}
+
+.headerStyle {
+  font-size: 35px;
+  font-weight: 700;
+}
