@@ -1,0 +1,3 @@
+export const sizingTypesText = "this breaks down the top 100 adult sweater patterns and what kind of sizing they use. This was self parsed. Letter sizing means that it uses common size notations like S, M, L. Measurement sizing is based on cm or inches. Sizing in notes means it can't be judged without reading the notes of the pattern. Irregular means it didn't fit in the common patterns that I found in these patterns"
+
+export const letterBreakdown = "This is just a break down of the percentage in the letter sizing that doesn't go above an XL"

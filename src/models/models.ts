@@ -25,6 +25,7 @@ export interface PatternList {
 
 export interface PatternFull {
     craft: Craft;
+    created_at: string;
     id: number;
     packs: Pack[];
     sizes_available: string;
@@ -37,8 +38,6 @@ export interface YarnFiber {
 }
 
 export interface YarnFull {
-    certified_organic: boolean;
-    discontinued: boolean;
     id: number;
     yarn_fibers: YarnFiber[];
 }
