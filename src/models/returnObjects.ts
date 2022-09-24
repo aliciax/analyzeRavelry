@@ -13,6 +13,6 @@ export interface PatternSearchByIdResult {
 
 
 export interface YarnSearchByIdResult {
-    yarn: {string: YarnFull};
+    yarns: {string: YarnFull};
 }
 

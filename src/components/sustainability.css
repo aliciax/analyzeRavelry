@@ -1,0 +1,11 @@
+.flex > * {
+  flex-basis: 100%;
+}
+.analysisStyle {
+  padding: 20px;
+}
+
+.backgroundCoral {
+  background-color: #ee6e62;
+  padding: 20px;
+}

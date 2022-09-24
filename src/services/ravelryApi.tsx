@@ -45,7 +45,10 @@ export async function getCurrentlyPopularSweaters(): Promise<PatternSearchResult
 }
 
 //include craft
-export async function getPatterns(): Promise<PatternSearchResult> {
+export async function getPatterns(
+  sort: string,
+  craft: string
+): Promise<PatternSearchResult> {
   const headers = new Headers();
   // This is the HTTP header that you need add in order to access api.ravelry.com with a read only API key
   // `btoa` will base 64 encode a string: https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
@@ -55,7 +58,7 @@ export async function getPatterns(): Promise<PatternSearchResult> {
     "Basic " + btoa(authUsername + ":" + authPassword)
   );
   return await fetch(
-    "https://api.ravelry.com/patterns/search.json?sort=popularity",
+    `https://api.ravelry.com/patterns/search.json?sort=${sort}&craft=${craft}`,
     {
       method: "GET",
       headers: headers,

@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { dataPoint, sizeDataSet, typesObject } from "../models/dataSetModels";
+import { dataPoint, sizeDataSet } from "../models/dataSetModels";
 import { PatternFull } from "../models/models";
 import {
   selectCurPopularSweaters,
   selectPopularSweaters,
 } from "../state/dataReducer";
 import "../config/styles.css";
-import { letterBreakdown, sizingTypesText } from "../config/inclusivityText";
+import {
+  letterBreakdown,
+  sizingTypesExplanation,
+  sizingTypesText,
+} from "../config/inclusivityText";
 import { createChart } from "./charts";
 
 const LetterFilter: RegExp = /L|XL/;
@@ -34,7 +38,9 @@ export function SizeInclusivity() {
   useEffect(() => {
     setSizeDataSet(extractSizeDataSet(popularSweaterData));
     setCurSizeDataSet(extractSizeDataSet(curPopularSweaterData));
+  }, [popularSweaterData, curPopularSweaterData]);
 
+  useEffect(() => {
     //general top data
     setTopTypeDataSet([
       {
@@ -65,7 +71,7 @@ export function SizeInclusivity() {
       { name: "Max XL", value: originalCurDataSet.straightSizeOnly },
       { name: "Larger than XL", value: originalCurDataSet.letterSizing },
     ]);
-  }, [popularSweaterData, curPopularSweaterData]);
+  }, [originalDataSet, originalCurDataSet]);
 
   return (
     <div className="container">
@@ -73,15 +79,16 @@ export function SizeInclusivity() {
         <h2 className="headerStyle">
           Sizing types in the top 100 patterns vs currently popular 100 patterns
         </h2>
-        <div className="flex">
-          {createChart(topTypeDataSet)} {createChart(curTopTypeDataSet)}
-        </div>
         <div className="">{sizingTypesText}</div>
+        <div className="flex">
+          {createChart(topTypeDataSet,600,600,230)} {createChart(curTopTypeDataSet,600,600,230)}
+        </div>
+        <div className="">{sizingTypesExplanation}</div>
       </section>
       <section className="section">
         <h2 className="headerStyle">Breakdown of letter sizes</h2>
         <div className="flex">
-          {createChart(topLetterDataSet)} {createChart(curTopLetterDataSet)}
+          {createChart(topLetterDataSet,600,600,230)} {createChart(curTopLetterDataSet,600,600,230)}
         </div>
         <div className="">{letterBreakdown}</div>
       </section>
