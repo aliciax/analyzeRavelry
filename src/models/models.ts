@@ -10,6 +10,7 @@ export interface FiberType {
     id: number;
     name: string;
     synthetic: boolean;
+    vegetable_fiber: boolean
 }
 
 //References the yarn used 

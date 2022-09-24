@@ -6,10 +6,11 @@ export interface dataPoint {
 }
 
 export interface fiberDataSet {
-    fullOrganic: number;
+    fullNatural: number;
     fullSynthetic: number;
-    mixedOrganic: number;
+    mixedNatural: number;
     mixedSynthetic: number;
+    fiberTypes: { [key: number]: number }
 }
 
 
